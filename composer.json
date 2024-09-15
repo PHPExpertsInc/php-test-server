@@ -1,0 +1,51 @@
+
+{
+    "name": "phpexperts/php-test-server",
+    "description": "A quick and easy standard PHP HTTP REST API Test Server.",
+    "keywords": [
+        "restful",
+        "test server",
+        "api",
+        "http"
+    ],
+    "homepage": "https://www.phpexperts.pro/",
+    "license": "CC-BY-4.0",
+    "authors": [
+        {
+            "name": "PHP Experts, Inc.",
+            "homepage": "https://www.phpexperts.pro/"
+        },
+        {
+            "name": "Theodore R. Smith",
+            "homepage": "https://www.linkedin.com/in/tedrsmith"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "ext-pcntl": "*",
+        "ext-sockets": "*"
+    },
+    "require-dev": {
+        "ext-posix": "*",
+        "phpunit/phpunit": "9.*",
+        "phpstan/phpstan": "*",
+        "friendsofphp/php-cs-fixer": "*",
+        "symfony/var-dumper": "*",
+        "povils/phpmnd": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phpexperts/dockerize": "*",
+        "symfony/http-client": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPExperts\\PHPTestServer\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "PHPExperts\\PHPTestServer\\Tests\\" : "tests/" }
+    },
+    "config": {
+        "classmap-authoritative": true
+    }
+}

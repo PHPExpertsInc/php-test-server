@@ -1,0 +1,33 @@
+#!/bin/env php
+<?php declare(strict_types=1);
+
+/**
+ * This file is part of PHP API Test Server, a PHP Experts, Inc., Project.
+ *
+ * Copyright © 2024 PHP Experts, Inc.
+ * Author: Theodore R. Smith <theodore@phpexperts.pro>
+ *   GPG Fingerprint: 4BF8 2613 1C34 87AC D28F  2AD8 EB24 A91D D612 5690
+ *   https://www.phpexperts.pro/
+ *   https://github.com/PHPExpertsInc/php-test-server
+ *
+ * This file is licensed under the MIT License.
+ */
+
+use PHPExperts\PHPTestServer\TestApiRestServer;
+
+require_once $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+if (strpos($argv[1] ?? '', ':') !== false) {
+    [$ip, $port] = explode(':', $argv[1] ?? '');
+}
+else {
+    $port = (int)($argv[1] ?? 49519);
+    $ip = $ip ?? $argv[2] ?? null;
+}
+
+if ($port > 65535) {
+    echo "ERROR: $port is too high. Must be lower than 65535.\n";
+    exit(1);
+}
+
+TestApiRestServer::run($port, $ip);
